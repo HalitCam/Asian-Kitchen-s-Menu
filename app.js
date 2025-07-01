@@ -86,13 +86,13 @@ const menu = [
 
 let buttonsDOM = document.querySelector(".btn-container")
 
-const buttonadd = (text)=> {
+const buttonadd = (text) => {
   const newBtn = document.createElement("button")
-  newBtn.textContent=text
+  newBtn.textContent = text
   newBtn.id = `${text}`
-  newBtn.classList.add("btn", "btn-primary","btn-item")
-  newBtn.type="button"
-  buttonsDOM.append(newBtn)  
+  newBtn.classList.add("btn", "btn-primary", "btn-item")
+  newBtn.type = "button"
+  buttonsDOM.append(newBtn)
 }
 buttonadd("All")
 buttonadd("Korea")
@@ -105,33 +105,50 @@ let korea = []
 let japan = []
 let china = []
 
-function categorizeMeal(info){
-  info.category==="Korea" ? korea.push(info) :
-  info.category==="Japan" ? japan.push(info) :
-  info.category==="China" ? china.push(info) :
-  null
+function categorizeMeal(info) {
+  info.category === "Korea" ? korea.push(info) :
+    info.category === "Japan" ? japan.push(info) :
+      info.category === "China" ? china.push(info) :
+        null
 }
-  menu.forEach(item => {
-    categorizeMeal(item) 
-   });
-   console.log(korea)
+menu.forEach(item => {
+  categorizeMeal(item)
+});
+console.log(korea)
 
 
 
-// // Menü Items design
-// const menuItemsDOM = document.querySelector(".row")
-// function singleItemAdd(info){
-//   const newItemsDOM = document.createElement("div")
-//   newItemsDOM.classList.add("col-sm-5")
-//   newItemsDOM.style.marginLeft("3px")
-//   menuItemsDOM.appendChild(newItemsDOM)
+// Menü Items design
+const menuItemsDOM = document.querySelector(".row")
+menuItemsDOM.classList.add("menu-items")
 
-//   me
-
-  
+function singleItemAdd(info) {
+  const newItemsDOM = document.createElement("div")
+  newItemsDOM.classList.add("col-sm-5")
+  newItemsDOM.style.marginLeft = "3px"
+  menuItemsDOM.appendChild(newItemsDOM)
 
 
-// }
+  //image of Item design
+  const imageInhalt = document.createElement("img")
+  imageInhalt.classList.add("col-sm-3","photo")
+  imageInhalt.src = `${info.img}`
+  newItemsDOM.append(imageInhalt)
+
+  //text of Item design   ////DEVAMMMM!!!
+  const textInhalt = document.createElement("div")
+  textInhalt.classList.add("col-sm-6")
+  textInhalt.innerHTML = `${info.title}                         ${info.price}`
+  newItemsDOM.append(textInhalt)
+
+
+
+}
+
+singleItemAdd(korea[1])
+
+
+
 
 
 // The click-properties link added
