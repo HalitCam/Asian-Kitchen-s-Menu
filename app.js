@@ -114,13 +114,14 @@ function categorizeMeal(info) {
 menu.forEach(item => {
   categorizeMeal(item)
 });
-console.log(korea)
+
 
 
 
 // Menü Items design
 const menuItemsDOM = document.querySelector(".row")
 menuItemsDOM.classList.add("menu-items")
+
 
 function singleItemAdd(info) {
   const newItemsDOM = document.createElement("div")
@@ -130,7 +131,7 @@ function singleItemAdd(info) {
 
   // frame of menuItemsDOM added
   const frameDOM = document.createElement("div")
-  frameDOM.classList.add("row")
+  frameDOM.classList.add("row", "menu-items")
   newItemsDOM.append(frameDOM)
 
 
@@ -150,7 +151,11 @@ function singleItemAdd(info) {
 
 }
 
-singleItemAdd(korea[1])
+menu.forEach(meal => {
+  singleItemAdd(meal)
+  
+});
+
 
 
 
