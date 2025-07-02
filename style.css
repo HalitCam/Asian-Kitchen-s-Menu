@@ -32,6 +32,8 @@ h2 {
 }
 
 .photo {
+  display: flex;
+  object-fit: cover;
   width: 30%;
   height: 175px;
   object-fit: cover;

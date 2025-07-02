@@ -107,9 +107,9 @@ let china = []
 
 function categorizeMeal(info) {
   info.category === "Korea" ? korea.push(info) :
-    info.category === "Japan" ? japan.push(info) :
-      info.category === "China" ? china.push(info) :
-        null
+  info.category === "Japan" ? japan.push(info) :
+  info.category === "China" ? china.push(info) :
+  null
 }
 menu.forEach(item => {
   categorizeMeal(item)
@@ -124,22 +124,27 @@ menuItemsDOM.classList.add("menu-items")
 
 function singleItemAdd(info) {
   const newItemsDOM = document.createElement("div")
-  newItemsDOM.classList.add("col-sm-5")
-  newItemsDOM.style.marginLeft = "3px"
+  newItemsDOM.classList.add("col-sm-6")
+  //newItemsDOM.style.marginLeft = "3px"
   menuItemsDOM.appendChild(newItemsDOM)
+
+  // frame of menuItemsDOM added
+  const frameDOM = document.createElement("div")
+  frameDOM.classList.add("row")
+  newItemsDOM.append(frameDOM)
 
 
   //image of Item design
   const imageInhalt = document.createElement("img")
-  imageInhalt.classList.add("col-sm-3","photo")
+  imageInhalt.classList.add("col-sm-6", "photo")
   imageInhalt.src = `${info.img}`
-  newItemsDOM.append(imageInhalt)
+  frameDOM.append(imageInhalt)
 
   //text of Item design   ////DEVAMMMM!!!
-  const textInhalt = document.createElement("div")
-  textInhalt.classList.add("col-sm-6")
-  textInhalt.innerHTML = `${info.title}                         ${info.price}`
-  newItemsDOM.append(textInhalt)
+  const textInhaltDOM = document.createElement("div")
+  textInhaltDOM.classList.add("col-sm-6")
+  textInhaltDOM.innerHTML = `<div><h4>${info.title}  ${info.price} </h4> <hr>  <p class="menu-text">${info.desc} </p>`
+  frameDOM.append(textInhaltDOM)
 
 
 
