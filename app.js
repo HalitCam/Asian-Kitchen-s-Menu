@@ -88,6 +88,9 @@ let buttonsDOM = document.querySelector(".btn-container")
 
 const buttonadd = (text) => {
   const newBtn = document.createElement("button")
+  newBtn.onclick= function(newBtn.){
+
+  }
   newBtn.textContent = text
   newBtn.id = `${text}`
   newBtn.classList.add("btn", "btn-primary", "btn-item")
@@ -155,6 +158,8 @@ menu.forEach(meal => {
   singleItemAdd(meal)
   
 });
+
+
 
 
 
