@@ -88,14 +88,23 @@ let buttonsDOM = document.querySelector(".btn-container")
 
 const buttonadd = (text) => {
   const newBtn = document.createElement("button")
-  newBtn.onclick= function(newBtn.){
-
-  }
   newBtn.textContent = text
-  newBtn.id = `${text}`
-  newBtn.classList.add("btn", "btn-primary", "btn-item")
-  newBtn.type = "button"
-  buttonsDOM.append(newBtn)
+  newBtn.onclick = function () {
+    if (newBtn.textContent === "China") {
+      menu.forEach(item){item.category==="China" ? singleItemAdd(item) 
+      menu.forEach(item){item.category=== "Korea" ? singleItemAdd(item) 
+      menu.forEach(item)(item.category==="Japan"? singleItemAdd(item) 
+      )
+      }
+      };
+  }
+
+
+}
+newBtn.id = `${text}`
+newBtn.classList.add("btn", "btn-primary", "btn-item")
+newBtn.type = "button"
+buttonsDOM.append(newBtn)
 }
 buttonadd("All")
 buttonadd("Korea")
@@ -110,9 +119,9 @@ let china = []
 
 function categorizeMeal(info) {
   info.category === "Korea" ? korea.push(info) :
-  info.category === "Japan" ? japan.push(info) :
-  info.category === "China" ? china.push(info) :
-  null
+    info.category === "Japan" ? japan.push(info) :
+      info.category === "China" ? china.push(info) :
+        null
 }
 menu.forEach(item => {
   categorizeMeal(item)
@@ -156,7 +165,7 @@ function singleItemAdd(info) {
 
 menu.forEach(meal => {
   singleItemAdd(meal)
-  
+
 });
 
 
