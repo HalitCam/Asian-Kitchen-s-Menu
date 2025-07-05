@@ -83,29 +83,27 @@ const menu = [
 ];
 
 // filter-buttons structured
-
 let buttonsDOM = document.querySelector(".btn-container")
 
 const buttonadd = (text) => {
   const newBtn = document.createElement("button")
   newBtn.textContent = text
+  newBtn.id = `${text}`
+  newBtn.classList.add("btn", "btn-primary", "btn-item")
+  newBtn.type = "button"
+  buttonsDOM.append(newBtn)
+
+  // adding event of Buttons
   newBtn.onclick = function () {
-    if (newBtn.textContent === "China") {
-      menu.forEach(item){item.category==="China" ? singleItemAdd(item) 
-      menu.forEach(item){item.category=== "Korea" ? singleItemAdd(item) 
-      menu.forEach(item)(item.category==="Japan"? singleItemAdd(item) 
-      )
-      }
-      };
+    menuItemsDOM.innerHTML = ""
+
+    if(newBtn.textContent === "Korea") korea.forEach(item => singleItemAdd(item))
+      else if(newBtn.textContent === "Japan") japan.forEach(item => singleItemAdd(item))
+        else if (newBtn.textContent === "China") china.forEach(item => singleItemAdd(item))
+          else  menu.forEach(item => singleItemAdd(item))
   }
-
-
 }
-newBtn.id = `${text}`
-newBtn.classList.add("btn", "btn-primary", "btn-item")
-newBtn.type = "button"
-buttonsDOM.append(newBtn)
-}
+
 buttonadd("All")
 buttonadd("Korea")
 buttonadd("Japan")
@@ -123,6 +121,7 @@ function categorizeMeal(info) {
       info.category === "China" ? china.push(info) :
         null
 }
+
 menu.forEach(item => {
   categorizeMeal(item)
 });
@@ -132,6 +131,8 @@ menu.forEach(item => {
 
 // Menü Items design
 const menuItemsDOM = document.querySelector(".row")
+// Default first Page View
+menuItemsDOM.append(menu.forEach(item => singleItemAdd(item)))
 menuItemsDOM.classList.add("menu-items")
 
 
@@ -153,7 +154,7 @@ function singleItemAdd(info) {
   imageInhalt.src = `${info.img}`
   frameDOM.append(imageInhalt)
 
-  //text of Item design   ////DEVAMMMM!!!
+  //text of Item design   
   const textInhaltDOM = document.createElement("div")
   textInhaltDOM.classList.add("col-sm-6")
   textInhaltDOM.innerHTML = `<div><h4>${info.title}  ${info.price} </h4> <hr>  <p class="menu-text">${info.desc} </p>`
@@ -163,10 +164,10 @@ function singleItemAdd(info) {
 
 }
 
-menu.forEach(meal => {
-  singleItemAdd(meal)
+// menu.forEach(meal => {
+//   singleItemAdd(meal)
 
-});
+// });
 
 
 
