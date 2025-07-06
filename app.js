@@ -80,6 +80,7 @@ const menu = [
       "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
     desc: `Red bean paste dessert, serving with honey.`,
   },
+
 ];
 
 // filter-buttons structured
@@ -173,7 +174,14 @@ function singleItemAdd(info) {
 
 
 
-
+// let info = "merhaba alev"
+// let infoArray = info.split("")
+// console.log(infoArray)
+// let array2 = infoArray.map(item => item)
+// console.log(infoArray)
+// console.log(array2)
 
 
 // The click-properties link added
+
+
