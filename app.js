@@ -172,6 +172,7 @@ function singleItemAdd(info) {
 
 
 
+// The click-properties link added
 
 
 // let info = "merhaba alev"
